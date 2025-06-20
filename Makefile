@@ -29,7 +29,7 @@ rebuild: clean $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(BINDIR)/$(TARGET)$(EXTENSION) $(CFLAGS) $(LDFLAGS)
-	cp $(LIBDIR)/*.dll $(BINDIR)/
+	find $(LIBDIR) -name \*.dll -ecec cp {} $(BINDIR)/
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	mkdir -p $(dir $@, hacks)
